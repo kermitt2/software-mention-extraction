@@ -1,0 +1,12 @@
+pandas
+numpy
+keras
+torch
+nltk
+sklearn
+transformers
+seqeval==0.0.12
+tqdm
+blink
+bs4
+
