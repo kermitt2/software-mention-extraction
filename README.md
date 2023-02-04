@@ -1,3 +1,38 @@
+This is a forked version of CZI Software mention extraction and linking from scientific articles tool, with some modifications for updated dependencies, fixing some data preparation issues, updating cross-evaluation and adding an evaluation on real mention distribution.
+
+- addition of a `requirement.txt` file to clarify dependencies
+
+- some import modifications to fit the updated packages
+
+- fixing two data preparation issues, see https://github.com/chanzuckerberg/software-mention-extraction/issues/1 and https://github.com/chanzuckerberg/software-mention-extraction/issues/2
+
+- updated cross-evaluation with the above fixes:
+
+```
+F1 score: 0.853408
+           precision    recall  f1-score   support
+
+ software     0.8169    0.8614    0.8386       404
+  version     0.8934    0.9160    0.9046       119
+
+micro avg     0.8339    0.8738    0.8534       523
+macro avg     0.8343    0.8738    0.8536       523
+```
+
+- addition of an evaluation on an holdout set of articles (20% of the Softcite dataset) with full article content to evaluate the extraction on real mention distribution (the Softcite corpus includes only paragraphs with at least one mention) - this evaluation includes the above fixes too:
+
+```
+F1 score: 0.562856
+           precision    recall  f1-score   support
+
+  version     0.4547    0.9310    0.6110       232
+ software     0.4121    0.8089    0.5460       649
+
+micro avg     0.4229    0.8411    0.5629       881
+macro avg     0.4233    0.8411    0.5631       881
+```
+
+
 # Software mention extraction and linking from scientific articles :floppy_disk:
 
 Most of the cutting-edge science is built on scientific software, which makes scientific software often as important as traditional scholarly literature. Despite that, the software is not always treated as such, especially when it comes to funding, credit, and citations. Moreover, with the ever-growing number of open-source software tools, it is impossible for many researchers to track tools, databases, and methods in a specific field. 
